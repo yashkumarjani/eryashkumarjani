@@ -1,7 +1,6 @@
 import React from 'react';
 import './Dashboard.scss';
 import BrandDetails from '../BrandDetails/BrandDetails';
-import Alert from '../../Features/Alert/Alert';
 
 const Dashboard = () => {
     return (
@@ -39,9 +38,6 @@ const Dashboard = () => {
                     ❄
                 </div>
             </div>
-
-            {/* Alert Code. */}
-            <Alert />
 
             {/* Dashboard Soon Code. */}
             <section className='dashboard d-flex justify-content-center align-items-center'>
