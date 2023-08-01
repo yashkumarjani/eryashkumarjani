@@ -16,7 +16,7 @@ const SubModal = () => {
                             <div className="container">
                                 <div className="row">
                                     <div className="mx-auto">
-                                        <img src={process.env.PUBLIC_URL + '/programmer.jpg'} className="rounded img-thumbnail mx-auto d-block mt-2" width="120" height="120" alt="programmer" />
+                                        <img src={process.env.PUBLIC_URL + '/programmer.jpg'} className="rounded img-thumbnail mx-auto d-block cs mt-2" width="120" height="120" alt="programmer" />
                                         <p className='text-light mt-2 mb-1'>Coming Soon!</p>
                                     </div>
                                 </div>
