@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import ComingSoon from './Pages/ComingSoon';
 import Loader from './Features/Loader/Loader';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 const App = () => {
   const [loader, setLoader] = useState(true)
@@ -9,13 +9,13 @@ const App = () => {
   useEffect(()=>{
     setTimeout(()=>{
       setLoader(false);
-    }, 6000);
+    }, 2800);
   });
   
   return (
     <div className="App">
       {
-        loader ? <Loader /> : <ComingSoon />
+        loader ? <Loader /> : <Dashboard />
       }
     </div>
   )

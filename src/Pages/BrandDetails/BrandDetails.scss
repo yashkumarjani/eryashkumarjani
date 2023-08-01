@@ -1,0 +1,34 @@
+.brandDetails {
+    img {
+        transition: 1s ease-in-out;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+
+        &:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: 1s ease-in-out;
+            -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
+        }
+    }
+}
+
+.ownAanimation {
+    background-color: rgb(255 255 255 / 94%);
+
+    .modal-xl {
+        --bs-modal-width: 99%;
+
+        .modal-content {
+            border-radius: 5px;
+            background-color: #003e59;
+            
+            .btn-close{
+                background: white var(--bs-btn-close-bg) center/1em auto no-repeat;
+                border-radius: 0.2rem
+            }
+        }
+    }
+}
