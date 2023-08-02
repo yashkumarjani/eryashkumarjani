@@ -5,6 +5,7 @@ import Programmer from "../BrandDetails/Programmer/Programmer"
 import Actor from "../BrandDetails/Actor/Actor"
 
 const BrandDetails = () => {
+
     return (
         <>
             {/* BrandDetails Code. */}

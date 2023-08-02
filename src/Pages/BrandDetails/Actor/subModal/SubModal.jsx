@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import ReactPlayer from 'react-player/lazy';
 import './SubModal.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { featchProjectsData } from '../../../../services/actorDetailsSlice';
 
 const SubModal = () => {
+    const dispatch = useDispatch();
+
+    const { projects, loading } = useSelector((state) => state.app);
+
+    console.log("#ProjectDataComing", projects);
+
+    useEffect(() => {
+        dispatch(featchProjectsData());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    if (loading) {
+        return (<h2 className='text-light'>Loading</h2>)
+    }
+
     return (
         <>
             {/* Modal Code. */}
@@ -12,20 +30,33 @@ const SubModal = () => {
                             <h1 className="modal-title text-light fs-5" id="actorModallLabel">ACTOR DETAILS</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div className="modal-body">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="mx-auto">
-                                        <img src={process.env.PUBLIC_URL + '/actor.jpg'} className="rounded img-thumbnail mx-auto d-block cs mt-2" width="120" height="120" alt="actor" />
-                                        <p className='text-light mt-2 mb-1'>Coming Soon!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {
+                            projects.map((ele) => {
+                                return (
+                                    <>
+                                        <div key={ele.id} className="modal-body">
+                                            <div className="container">
+                                                <div className="row">
+                                                    <div className="col-6 d-flex align-items-centet flex-column justify-content-center">
+                                                        <img src={process.env.PUBLIC_URL + '/actor.jpg'} className="rounded img-thumbnail mx-auto d-block cs my-2" width="120" height="120" alt="actor" />
+                                                        <p className='text-light mt-2 mb-1'>Project Name :- {ele.title}</p>
+                                                        <p className='text-light mt-2 mb-1'>Project Type :- {ele.type}</p>
+
+                                                    </div>
+                                                    <div className="col-6">
+                                                        <ReactPlayer className="youTubebox" url={ele.link} />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
+                                );
+                            })
+                        }
                         <div className="modal-footer">
                             <button type="button" className="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
                         </div>
-                    </div>
+                    </div >
                 </div>
             </div>
         </>
